@@ -13,3 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::post('/book', [\App\Http\Controllers\BookController::class, 'store']);
+Route::patch('/book/{book}', [\App\Http\Controllers\BookController::class, 'update']);

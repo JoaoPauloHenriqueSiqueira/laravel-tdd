@@ -9,9 +9,19 @@ class BookController extends Controller
 
     public function store()
     {
-        Book::create([
-            'title' => request('title'),
-            'author' => request('author')
-        ]);
+        Book::create($this->validateRequest());
+    }
+
+    public function update(Book $book)
+    {
+        $book->update($this->validateRequest());
+    }
+
+    /**
+     * @return array
+     */
+    public function validateRequest(): array
+    {
+        return request()->validate(['title' => 'required', 'author' => 'required']);
     }
 }
