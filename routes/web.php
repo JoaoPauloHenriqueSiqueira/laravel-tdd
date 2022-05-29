@@ -17,3 +17,10 @@ Route::patch('/book/{book}-{slug}', [\App\Http\Controllers\BookController::class
 Route::delete('/book/{book}-{slug}', [\App\Http\Controllers\BookController::class, 'destroy']);
 
 Route::post('/author', [\App\Http\Controllers\AuthorController::class, 'store']);
+
+Route::post('/checkout/{book}',  [\App\Http\Controllers\CheckoutBookController::class, 'store']);
+Route::post('/checkin/{book}',  [\App\Http\Controllers\CheckinBookController::class, 'store']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
